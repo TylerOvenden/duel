@@ -7,15 +7,16 @@ public interface Dueler
 
 	//print a taunt
 	//later: the taunt must be different each time the method is called
-	void taunt();{
+	void taunt(){
 		
-		System.out.println(taunts);
+		System.out.println("You are bad at this");
+	
 	}
 	
 	//returns the name of the Dueler
-	public String getName();{
+	public String getName(){
 		
-		System.out.println(name);
+		return("doge");
 	}
 	//set the value of a field. Write this in such a way that it can only be called once (by the Duel, at the start)
 	void setStartingHP(int hp);
