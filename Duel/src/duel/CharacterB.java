@@ -8,8 +8,12 @@ public class CharacterB implements Dueler {
 
 	@Override
 	public void taunt() {
-		// TODO Auto-generated method stub
+		if (Math.random() < .5) {
 		System.out.println("You are bad at this");	
+		}else {
+		System.out.println("You're going to lose!");
+		}
+		
 	}
 
 
