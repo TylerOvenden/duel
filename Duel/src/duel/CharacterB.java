@@ -40,8 +40,10 @@ public class CharacterB implements Dueler {
 
 	@Override
 	public boolean determineIfOpponentIsFair(Dueler d, int hp) {
-		// TODO Auto-generated method stub
-		return false;
+		if (d.hp == 100) {
+			return true;}
+		else {
+			return false;}
 	}
 
 
