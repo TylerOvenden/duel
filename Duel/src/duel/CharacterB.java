@@ -27,14 +27,14 @@ public class CharacterB implements Dueler {
 	@Override
 	public void setStartingHP(int hp) {
 		
-		
+		this.hp = 100;
 	}
 
 
 	@Override
 	public int getHP() {
 		// TODO Auto-generated method stub
-		return 0;
+		return hp;
 	}
 
 
@@ -50,7 +50,7 @@ public class CharacterB implements Dueler {
 	@Override
 	public int getAction(Object caller) {
 		// TODO Auto-generated method stub
-		return 0;
+		;
 	}
 
 
