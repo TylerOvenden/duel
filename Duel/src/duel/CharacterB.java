@@ -4,7 +4,11 @@ public class CharacterB implements Dueler {
 	private int hp;
 	
 	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 
+	}
+ 
 
 	@Override
 	public void taunt() {
@@ -16,7 +20,6 @@ public class CharacterB implements Dueler {
 		
 	}
 
-
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
@@ -26,38 +29,39 @@ public class CharacterB implements Dueler {
 
 	@Override
 	public void setStartingHP(int hp) {
-		
-		this.hp = 100;
+		this.hp = hp;
 	}
 
 
 	@Override
 	public int getHP() {
 		// TODO Auto-generated method stub
-		return hp;
+		return this.hp;
 	}
-
 
 	@Override
 	public boolean determineIfOpponentIsFair(Dueler d, int hp) {
-		if (d.hp == 100) {
-			return true;}
+		if (d.getHP() == 100) {
+			return true;
+		}
 		else {
-			return false;}
+			return false;
+		}
 	}
-
 
 	@Override
 	public int getAction(Object caller) {
 		// TODO Auto-generated method stub
-		;
+		return 0;
 	}
 
 
 	@Override
 	public void hit(Object caller) {
 		// TODO Auto-generated method stub
-		
+		if (caller.getClass() == TheDuel.class) {
+			this.hp -= 10;
+		}
 	}
 
 
