@@ -2,6 +2,8 @@ package duel;
 
 public class CharacterB implements Dueler {
 	private int hp;
+	private boolean load = false;
+	
 	
 	
 	public static void main(String[] args) {
@@ -52,16 +54,26 @@ public class CharacterB implements Dueler {
 	@Override
 	public int getAction(Object caller) {
 		// TODO Auto-generated method stub
-		if (caller instanceof TheDuel)
-		{
-			return (int) (Math.round(Math.random()*3));
-		}
-		else 
-		{
+
+		if(caller instanceof CharacterB) {
 			return 3;
 		}
+		if (load) {
+			if 	(Math.random() < .5) { 
+				load = true;
+				return 1;
+		}   		return 2; 
 	}
-	@Override
+
+		else	 {
+			if 	(Math.random() < .5) { 
+				load = false;
+				return 0;
+		}   		return 2; 
+	}
+	}
+
+	
 	public void hit(Object caller) {
 		// TODO Auto-generated method stub
 		if (caller.getClass() == TheDuel.class) {

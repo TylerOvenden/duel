@@ -103,7 +103,6 @@ public class TheDuel {
 			System.out.println(d1.getName()+": "+dueler1HP + " and " + d2.getName() + ": " + dueler2HP+".");
 			System.out.println(d1.getName()+" "+outcomes[d1Action] + " and " + d2.getName() + " " + outcomes[d2Action]+".");
 			if (d1Action == LOADING){
-				d1Loaded = true;
 			}
 			if (d2Action == LOADING){
 				d2Loaded = true;
