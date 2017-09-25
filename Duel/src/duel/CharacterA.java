@@ -52,12 +52,10 @@ public class CharacterA implements Dueler {
 	@Override
 	public int getAction(Object caller) {
 		// TODO Auto-generated method stub
-		if (caller instanceof TheDuel)
-		{
+		if (caller instanceof TheDuel){
 			return (int) (Math.round(Math.random()*3));
 		}
-		else 
-		{
+		else {
 			return 3;
 		}
 	}
