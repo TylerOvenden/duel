@@ -1,9 +1,8 @@
 package duel;
-
 public class CharacterA implements Dueler {
 	private int hp;
-	private boolean load = false;
-	
+	boolean isLoaded = false;
+	boolean round1 = false;
 	
 
 
@@ -52,26 +51,30 @@ public class CharacterA implements Dueler {
 
 	@Override
 	public int getAction(Object caller) {
-		// TODO Auto-generated method stub
-
-		if(caller instanceof CharacterB) {
-			return 3;
-		}
-		if (load) {
-			if 	(Math.random() < .5) { 
-				load = false;
-				return 1;
-		}   		return 2; 
-	}
-
-		else	 {
-			if 	(Math.random() < .5) { 
-				load = true;
+		if (caller instanceof TheDuel) {
+			if(round1) {
+				round1 = false;
+				isLoaded = true;
 				return 0;
-		}   		return 2; 
+			}
+			if(!isLoaded)
+				if((Math.random()) < .5) {
+					isLoaded = true;
+					return 0;
+				}
+				else
+					return 2;
+			else
+				if((Math.random()) < .5) {
+					isLoaded = false;
+					return 1;
+				}
+				else
+					return 2;
+		}
+		else
+			return 3;
 	}
-	}
-
 	@Override
 	public void hit(Object caller) {
 		// TODO Auto-generated method stub

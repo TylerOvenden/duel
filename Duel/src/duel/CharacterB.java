@@ -2,14 +2,10 @@ package duel;
 
 public class CharacterB implements Dueler {
 	private int hp;
-	private boolean load = false;
+	boolean isLoaded = false;
+	boolean round1 = false;
 	
 	
-	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
  
 
 	@Override
@@ -53,34 +49,37 @@ public class CharacterB implements Dueler {
 
 	@Override
 	public int getAction(Object caller) {
-		// TODO Auto-generated method stub
-
-		if(caller instanceof CharacterB) {
-			return 3;
-		}
-		if (load) {
-			if 	(Math.random() < .5) { 
-				load = true;
-				return 1;
-		}   		return 2; 
-	}
-
-		else	 {
-			if 	(Math.random() < .5) { 
-				load = false;
+		if (caller instanceof TheDuel) {
+			if(round1) {
+				round1 = false;
+				isLoaded = true;
 				return 0;
-		}   		return 2; 
+			}
+			if(!isLoaded)
+				if((Math.random()) < .5) {
+					isLoaded = true;
+					return 0;
+				}
+				else
+					return 2;
+			else
+				if((Math.random()) < .5) {
+					isLoaded = false;
+					return 1;
+				}
+				else
+					return 2;
+		}
+		else
+			return 3;
 	}
-	}
-
-	
+	@Override
 	public void hit(Object caller) {
 		// TODO Auto-generated method stub
-		if (caller.getClass() == TheDuel.class) {
+		if (caller instanceof TheDuel) {
 			this.hp -= 10;
 		}
 	}
-
 
 
 }
