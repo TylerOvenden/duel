@@ -1,9 +1,8 @@
 package duel;
 public class CharacterA implements Dueler {
 	private int hp;
-	boolean isLoaded = false;
-	boolean round1 = false;
-	
+	private int loaded = 0;
+	private boolean round1 = true;
 
 
 	@Override
@@ -40,48 +39,41 @@ public class CharacterA implements Dueler {
 
 	@Override
 	public boolean determineIfOpponentIsFair(Dueler d, int hp) {
-		if (d.getHP() == 100) {
+		if(d.getHP() == hp)
 			return true;
-		}
-		else {
+		else
 			return false;
-		}
 	}
+	
 
-
-	@Override
 	public int getAction(Object caller) {
-		if (caller instanceof TheDuel) {
-			if(round1) {
-				round1 = false;
-				isLoaded = true;
-				return 0;
-			}
-			if(!isLoaded)
-				if((Math.random()) < .5) {
-					isLoaded = true;
+			if (caller instanceof TheDuel) {
+				if (round1) {
+					round1 = false;
+					loaded = 1;
 					return 0;
 				}
-				else
-					return 2;
-			else
-				if((Math.random()) < .5) {
-					isLoaded = false;
-					return 1;
+				if(loaded == 0) {
+					if(Math.random() > .2) {
+						loaded = 1;
+						return 0;
+					}
+					else return 2;
 				}
-				else
-					return 2;
-		}
-		else
-			return 3;
+				else 
+					if(Math.random() > .5) {
+						loaded = 0;
+						return 1;
+					}
+					else return 2;
+			} else
+				return 3;
 	}
-	@Override
+
 	public void hit(Object caller) {
-		// TODO Auto-generated method stub
-		if (caller instanceof TheDuel) {
-			this.hp -= 10;
-		}
+			if (caller instanceof TheDuel) {
+				this.hp -= 10;
+			}
 	}
-
-
 }
+

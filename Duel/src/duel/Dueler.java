@@ -27,4 +27,3 @@ public interface Dueler {
 	
 	void hit(Object caller);
 }
-
