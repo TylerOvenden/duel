@@ -11,7 +11,8 @@ public class CharacterA implements Dueler {
 		System.out.println("You can't possibly defeat me!");	
 		} 
 		else {
-		System.out.println("Haha! Try again?");
+		System.out.println("Haha! Try again?"); 
+		
 		}
 		
 	}
